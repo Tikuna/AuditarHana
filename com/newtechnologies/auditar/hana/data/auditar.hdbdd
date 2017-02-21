@@ -7,7 +7,7 @@ context auditar {
     type TipoClavePrimaria : Integer64;
     type TipoClaveForanea : Integer64;
     type TipoImporte : Decimal(12, 2);
-    type TipoCuotas : TinyINT;
+    type TipoCuotas : Integer;
     
     context Rf {
     
@@ -27,8 +27,8 @@ context auditar {
         @Catalog.tableType: #COLUMN
         entity Cupon {
             key Id : TipoClavePrimaria;
-            IdEmpresa : TipoClaveForanea;
-            IdMarca : TipoClaveForanea;
+            IdEmpresa : Association to Rf.Empresa;
+            IdMarca : Association to Rf.Marca;
             Importe : TipoImporte;
             CantidadCuotas : TipoCuotas;
             Observacion : TipoObservacion;
@@ -36,7 +36,7 @@ context auditar {
         @Catalog.tableType: #COLUMN
         entity Vencimiento {
             key Id : TipoClavePrimaria;
-            IdCupon : TipoClaveForanea;
+            IdCupon : Association to Tx.Cupon;
             NroCuota : TipoCuotas;            
             Importe : TipoImporte;
         };
