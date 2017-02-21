@@ -13,33 +13,32 @@ context auditar {
     
         @Catalog.tableType: #COLUMN
         entity Empresa {
-            key Id : TipoClavePrimaria;
-            Descripcion : TipoDescripcion;
+            key EMPRESAID : TipoClavePrimaria;
+            DESCRIPCION : TipoDescripcion;
         };
         @Catalog.tableType: #COLUMN
         entity Marca {
-            key Id : TipoClavePrimaria;
-            Descripcion : TipoDescripcion;
+            key MARCAID : TipoClavePrimaria;
+            DESCRIPCION : TipoDescripcion;
         };  
     };
     context Tx {
     
         @Catalog.tableType: #COLUMN
         entity Cupon {
-            key Id : TipoClavePrimaria;
-            IdEmpresa : Association to Rf.Empresa;
-            IdMarca : Association to Rf.Marca;
-            Importe : TipoImporte;
-            CantidadCuotas : TipoCuotas;
-            Observacion : TipoObservacion;
+            key CUPONID : TipoClavePrimaria;
+            EMPRESAID : Association to Rf.Empresa;
+            MARCAID : Association to Rf.Marca;
+            IMPORTE : TipoImporte;
+            CANTIDADCUOTAS : TipoCuotas;
+            OBSERVACION : TipoObservacion;
         };
         @Catalog.tableType: #COLUMN
         entity Vencimiento {
-            key Id : TipoClavePrimaria;
-            IdCupon : Association to Tx.Cupon;
-            NroCuota : TipoCuotas;            
-            Importe : TipoImporte;
+            key VENCIMIENTOID : TipoClavePrimaria;
+            CUPONID : Association to Tx.Cupon;
+            NROCUOTA : TipoCuotas;            
+            IMPORTE : TipoImporte;
         };
-        
     };
 };
