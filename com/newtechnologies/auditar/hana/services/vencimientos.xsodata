@@ -1,4 +1,4 @@
 service namespace "ar.com.newtechnologies.auditar.hana.data.services" {
-	"ar.com.newtechnologies.auditar.hana.data::auditar.Rf.Vencimiento"
+	"ar.com.newtechnologies.auditar.hana.data::auditar.Tx.Vencimiento"
 	as "Vencimiento"; 
 }
